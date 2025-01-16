@@ -12,11 +12,20 @@ config_version=5
 
 config/name="desktop idle game software engineering"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="desktop idle game software engineering"
+
+[file_customization]
+
+folder_colors={
+"res://UI/": "purple",
+"res://assets/": "red",
+"res://scenes/": "blue",
+"res://scripts/": "green",
+"res://tests/": "yellow"
+}
 
 [rendering]
 
