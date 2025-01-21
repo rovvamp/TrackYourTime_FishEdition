@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dohwyuoeimadp"]
+
+[node name="CommonFish" type="Node2D"]
+
+[node name="Fish1" type="Sprite2D" parent="."]
+
+[node name="Fish2" type="Sprite2D" parent="."]
