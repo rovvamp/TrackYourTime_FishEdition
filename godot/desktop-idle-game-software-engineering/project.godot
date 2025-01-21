@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="desktop idle game software engineering"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+run/main_scene="res://scenes/main/Main.tscn"
+config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
 
 [dotnet]
 

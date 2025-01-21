@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b06priykylrwr"]
+
+[ext_resource type="Texture2D" uid="uid://c2a03vkg3375k" path="res://assets/images/fish/YellowFish.png" id="1_4gdkr"]
+[ext_resource type="Script" path="res://scenes/fish/CommonFish.cs" id="1_jorkw"]
+[ext_resource type="Texture2D" uid="uid://dreau3gkj0bgl" path="res://assets/images/fish/BlueFish.png" id="2_d7q5v"]
+
+[node name="CommonFish" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jorkw")
+
+[node name="YellowFish" type="Sprite2D" parent="."]
+position = Vector2(641, 234)
+scale = Vector2(0.278112, 0.278112)
+texture = ExtResource("1_4gdkr")
+
+[node name="BlueFish" type="Sprite2D" parent="."]
+position = Vector2(329, 390)
+scale = Vector2(0.224372, 0.224372)
+texture = ExtResource("2_d7q5v")

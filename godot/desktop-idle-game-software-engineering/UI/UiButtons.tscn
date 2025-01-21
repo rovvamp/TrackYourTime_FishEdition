@@ -1,37 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbpwn8hbdqqvn"]
+[gd_scene load_steps=3 format=3 uid="uid://dbpwn8hbdqqvn"]
 
-[ext_resource type="Script" path="res://UI/countdown_button.gd" id="1_4phjs"]
+[ext_resource type="Script" path="res://UI/CountdownButton.cs" id="1_m8rn1"]
+[ext_resource type="Script" path="res://UI/FeedFishButton.cs" id="2_oaymq"]
 
 [node name="Interface" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_4phjs")
 
 [node name="MarginContainerCountdown" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_left = 482.0
-offset_top = 7.0
-offset_right = 626.0
-offset_bottom = 47.0
+offset_left = -75.0
+offset_top = -57.0
+offset_right = 69.0
+offset_bottom = -17.0
 
 [node name="CountdownButton" type="Button" parent="MarginContainerCountdown"]
 layout_mode = 2
 text = "Show Countdown"
+script = ExtResource("1_m8rn1")
 
 [node name="MarginContainerFish" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_left = 482.0
-offset_top = 7.0
-offset_right = 626.0
-offset_bottom = 47.0
+offset_left = -70.0
+offset_top = 17.0
+offset_right = 74.0
+offset_bottom = 57.0
 
 [node name="FeedFishButton" type="Button" parent="MarginContainerFish"]
 layout_mode = 2
-text = "Show Countdown"
+text = "Feed Fish"
+script = ExtResource("2_oaymq")
 
-[connection signal="pressed" from="MarginContainerCountdown/CountdownButton" to="." method="_on_timer_button_pressed"]
 [connection signal="pressed" from="MarginContainerFish/FeedFishButton" to="." method="_on_timer_button_pressed"]

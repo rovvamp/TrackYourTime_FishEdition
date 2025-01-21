@@ -1,3 +1,32 @@
-[gd_scene format=3 uid="uid://bqkg4h7dv45md"]
+[gd_scene load_steps=6 format=3 uid="uid://bqkg4h7dv45md"]
+
+[ext_resource type="Texture2D" uid="uid://ch2hdvntcyn04" path="res://assets/images/background/Background.png" id="1_3p460"]
+[ext_resource type="Script" path="res://scenes/main/Main.cs" id="1_c3vic"]
+[ext_resource type="PackedScene" uid="uid://b06priykylrwr" path="res://scenes/fish/CommonFish.tscn" id="2_ifks2"]
+[ext_resource type="PackedScene" uid="uid://c4ksoe30hrwm2" path="res://UI/Countdown.tscn" id="3_8l2up"]
+[ext_resource type="PackedScene" uid="uid://dbpwn8hbdqqvn" path="res://UI/UiButtons.tscn" id="3_j0jle"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_c3vic")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(619, 326)
+scale = Vector2(0.567084, 0.567084)
+texture = ExtResource("1_3p460")
+
+[node name="Interface" parent="." instance=ExtResource("3_j0jle")]
+offset_left = 972.0
+offset_top = 75.0
+offset_right = 972.0
+offset_bottom = 75.0
+
+[node name="Countdown" parent="." instance=ExtResource("3_8l2up")]
+visible = false
+position = Vector2(607, 21)
+
+[node name="CommonFish" parent="." instance=ExtResource("2_ifks2")]
+visible = false
+offset_left = 135.0
+offset_top = -36.0
+offset_right = 135.0
+offset_bottom = -36.0
