@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://b06priykylrwr"]
+[gd_scene load_steps=8 format=3 uid="uid://b06priykylrwr"]
 
 [ext_resource type="Texture2D" uid="uid://c2a03vkg3375k" path="res://assets/images/fish/YellowFish.png" id="1_4gdkr"]
-[ext_resource type="Script" path="res://scenes/fish/CommonFish.cs" id="1_jorkw"]
-[ext_resource type="Texture2D" uid="uid://dreau3gkj0bgl" path="res://assets/images/fish/BlueFish.png" id="2_d7q5v"]
+[ext_resource type="Script" path="res://scripts/fish/CommonFish.cs" id="1_jorkw"]
+[ext_resource type="Texture2D" uid="uid://bk3tadk1su2k7" path="res://assets/images/fish/BrownFish.png" id="3_iw1q8"]
+[ext_resource type="Texture2D" uid="uid://brfhnmgns0srj" path="res://assets/images/fish/RedFish.png" id="4_7ysol"]
+[ext_resource type="Texture2D" uid="uid://cp6bq6f4t8egb" path="res://assets/images/fish/OrangeFIsh.png" id="5_uqb7r"]
+[ext_resource type="Texture2D" uid="uid://dbso61gysjp6l" path="res://assets/images/fish/MoreThanTwoFish.png" id="6_7bq5o"]
+[ext_resource type="Texture2D" uid="uid://bngrvts383snv" path="res://assets/images/fish/Jellyfish.png" id="7_qbb58"]
 
 [node name="CommonFish" type="Control"]
 layout_mode = 3
@@ -14,11 +18,33 @@ grow_vertical = 2
 script = ExtResource("1_jorkw")
 
 [node name="YellowFish" type="Sprite2D" parent="."]
-position = Vector2(641, 234)
+position = Vector2(634.955, 302.95)
 scale = Vector2(0.278112, 0.278112)
 texture = ExtResource("1_4gdkr")
 
 [node name="BlueFish" type="Sprite2D" parent="."]
-position = Vector2(329, 390)
+position = Vector2(969, 555)
 scale = Vector2(0.224372, 0.224372)
-texture = ExtResource("2_d7q5v")
+texture = ExtResource("3_iw1q8")
+flip_h = true
+
+[node name="RedFish" type="Sprite2D" parent="."]
+position = Vector2(227, 97)
+scale = Vector2(0.2015, 0.2015)
+texture = ExtResource("4_7ysol")
+flip_h = true
+
+[node name="OrangeFIsh" type="Sprite2D" parent="."]
+position = Vector2(40, 394)
+scale = Vector2(0.164, 0.164)
+texture = ExtResource("5_uqb7r")
+
+[node name="MoreThanTwoFish" type="Sprite2D" parent="."]
+position = Vector2(493.79, 357.485)
+scale = Vector2(0.28, 0.274)
+texture = ExtResource("6_7bq5o")
+
+[node name="Jellyfish" type="Sprite2D" parent="."]
+position = Vector2(1081, 275)
+scale = Vector2(0.54625, 0.54625)
+texture = ExtResource("7_qbb58")
