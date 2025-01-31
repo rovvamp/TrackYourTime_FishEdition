@@ -23,7 +23,7 @@ namespace desktopidlegamesoftwareengineering.scripts.ui
             }
             else
             {
-                GD.PrintErr("[Countdown] Error: CurrencyLabel not found!");
+                GD.PrintErr("[Countdown] ERROR: CurrencyLabel not found!");
             }
 
             UpdateLabel();
@@ -72,9 +72,11 @@ namespace desktopidlegamesoftwareengineering.scripts.ui
 
                 UpdateLabel();
             }
+
+            //press 0 to finsih timer
+            HandleDebugInputs();
         }
 
-        //press 0 to make timer go to 0
         private void HandleDebugInputs()
         {
             if (Input.IsActionJustPressed("debug_timer_finish"))
