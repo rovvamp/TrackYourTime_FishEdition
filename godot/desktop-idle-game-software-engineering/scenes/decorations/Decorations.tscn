@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://dv3jaid2bxevf"]
+[gd_scene load_steps=3 format=3 uid="uid://dv3jaid2bxevf"]
+
+[ext_resource type="Texture2D" uid="uid://iyqdb0jodeeo" path="res://assets/images/decorations/DecorationCastle.png" id="1_lx6j1"]
+[ext_resource type="Texture2D" uid="uid://cxfr8on520c6a" path="res://assets/images/decorations/DecorationShip.png" id="2_r8ebp"]
 
 [node name="Decorations" type="Node2D"]
+
+[node name="DecorationCastle" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.784314)
+position = Vector2(773, 448)
+scale = Vector2(0.13789, 0.13789)
+texture = ExtResource("1_lx6j1")
+
+[node name="DecorationShip" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.784314)
+position = Vector2(396, 391)
+scale = Vector2(0.328537, 0.328537)
+texture = ExtResource("2_r8ebp")

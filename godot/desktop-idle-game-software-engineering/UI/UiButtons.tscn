@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbpwn8hbdqqvn"]
+[gd_scene load_steps=4 format=3 uid="uid://dbpwn8hbdqqvn"]
 
+[ext_resource type="Script" path="res://UI/DecorationButton.cs" id="2_27gi6"]
 [ext_resource type="Script" path="res://scripts/ui/FeedFishButton.cs" id="2_oaymq"]
+[ext_resource type="Texture2D" uid="uid://d2k58cwc2gte7" path="res://assets/images/currency/seashell.png" id="4_wvbmw"]
 
 [node name="Interface" type="Control"]
 layout_mode = 3
@@ -8,23 +10,54 @@ anchor_left = 0.433
 anchor_top = 0.527
 anchor_right = 0.563
 anchor_bottom = 0.6
-offset_left = 77.184
-offset_top = -17.496
-offset_right = -72.576
-offset_bottom = -64.8
+offset_left = 560.184
+offset_top = -341.496
+offset_right = 410.424
+offset_bottom = -388.8
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainerFish" type="MarginContainer" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.14688e+06
+anchor_right = 1.21242e+06
 offset_left = -70.0
-offset_top = 17.0
-offset_right = 74.0
-offset_bottom = 57.0
+offset_top = 28.115
+offset_right = 76.0
+offset_bottom = 63.115
 
 [node name="FeedFishButton" type="Button" parent="MarginContainerFish"]
 layout_mode = 2
 text = "Feed Fish"
 script = ExtResource("2_oaymq")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = -70.0
+offset_top = 75.0
+offset_right = 76.0
+offset_bottom = 110.0
+
+[node name="BuyDeocrationButton" type="Button" parent="MarginContainer"]
+layout_mode = 2
+text = "Buy Decoration"
+script = ExtResource("2_27gi6")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = -993.0
+offset_top = 50.0
+offset_right = -880.0
+offset_bottom = 73.0
+
+[node name="CurrencyLabel" type="Label" parent="MarginContainer2"]
+layout_mode = 2
+text = "0"
+
+[node name="CurrencySprite2D" type="Sprite2D" parent="MarginContainer2"]
+position = Vector2(-25, 9)
+scale = Vector2(0.0414925, 0.0414925)
+texture = ExtResource("4_wvbmw")
 
 [connection signal="pressed" from="MarginContainerFish/FeedFishButton" to="." method="_on_timer_button_pressed"]

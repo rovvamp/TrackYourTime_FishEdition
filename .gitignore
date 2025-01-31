@@ -1,31 +1,34 @@
-# Godot 4+ specific ignores
-.godot/
-
-# Godot-specific ignores
+# Godot-specific files
 .godot/
 .import/
 export.cfg
 export_presets.cfg
+*.translation  # Imported translations
 
-# Imported translations (automatically generated from CSV files)
-*.translation
-
-# Mono-specific ignores
+# Mono/C# build files
 .mono/
-data_*/
+*.csproj
+*.sln
+*.dll
+*.exe
+*.pdb
+*.mdb
+*.nupkg
+*.nuspec
+*.cache
+
+# Visual Studio Code settings
+.vscode/
+
+# Debug and crash reports
 mono_crash.*.json
-
-# Rider-specific files
-*.sln.iml
-.idea/
-*.suo
-*.user
-*.userosscache
-*.sln.DotSettings
-
-# Temporary files and caches
+*.log
 *.tmp
 *.temp
 *.backup
 *.db
 *.imported
+
+# Auto-generated Godot metadata files
+*.mono/
+data_*/

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqkg4h7dv45md"]
+[gd_scene load_steps=9 format=3 uid="uid://bqkg4h7dv45md"]
 
 [ext_resource type="Script" path="res://scripts/main/Main.cs" id="1_c3vic"]
 [ext_resource type="PackedScene" uid="uid://b06priykylrwr" path="res://scenes/fish/CommonFish.tscn" id="2_ifks2"]
 [ext_resource type="Texture2D" uid="uid://do2ax6k06vvwr" path="res://assets/images/background/Background.jpg" id="2_pj6tb"]
 [ext_resource type="PackedScene" uid="uid://c4ksoe30hrwm2" path="res://UI/Countdown.tscn" id="3_8l2up"]
 [ext_resource type="PackedScene" uid="uid://dbpwn8hbdqqvn" path="res://UI/UiButtons.tscn" id="3_j0jle"]
+[ext_resource type="PackedScene" uid="uid://dv3jaid2bxevf" path="res://scenes/decorations/Decorations.tscn" id="3_ts6lh"]
 [ext_resource type="AudioStream" uid="uid://bqyxr0bmxkvw8" path="res://assets/sounds/Underwater.mp3" id="6_vk334"]
 [ext_resource type="AudioStream" uid="uid://cdkpv58omrxgm" path="res://assets/sounds/PianoMusic.wav" id="7_bjt5s"]
 
@@ -16,11 +17,14 @@ position = Vector2(576.4, 324.75)
 scale = Vector2(0.607917, 0.547917)
 texture = ExtResource("2_pj6tb")
 
+[node name="Decorations" parent="." instance=ExtResource("3_ts6lh")]
+position = Vector2(-23, -3)
+
 [node name="Interface" parent="." instance=ExtResource("3_j0jle")]
-offset_left = 1070.0
-offset_top = -7.0
-offset_right = 1070.0
-offset_bottom = -7.0
+offset_left = 1064.0
+offset_top = -17.0
+offset_right = 1064.0
+offset_bottom = -17.0
 
 [node name="Countdown" parent="." instance=ExtResource("3_8l2up")]
 visible = false
