@@ -10,30 +10,13 @@ namespace desktopidlegamesoftwareengineering.scripts.ui
 
         public override void _Ready()
         {
-            GD.Print("[BuyDecorationButton] _Ready() function started.");
-
-            //get the decorations node
             _decorations = GetNode<Decorations>("/root/Main/Decorations");
 
-            if (_decorations == null)
-            {
-                GD.PrintErr("[BuyDecorationButton] fecorations node not found!");
-                return;
-            }
-            else
-            {
-                GD.Print("[BuyDecorationButton] decorations node found successfully");
-            }
-
-            //connect button click
             Pressed += OnButtonPressed;
-            GD.Print("[BuyDecorationButton] pressed signal connected");
         }
 
         private void OnButtonPressed()
         {
-            GD.Print("[BuyDecorationButton] button clicked");
-
             if (!GameManager.Instance.CastlePurchased)
             {
                 GD.Print("[BuyDecorationButton] attempting to purchase castle...");

@@ -14,12 +14,11 @@ namespace desktopidlegamesoftwareengineering.scripts.managers
 
         public override void _Ready()
         {
-            GD.Print("[GameManager] _Ready() function started...");
 
             if (_instance == null)
             {
                 _instance = this;
-                GD.Print("[GameManager] GameManager is now active!");
+                GD.Print("[GameManager] singleton instance created.");
             }
             else
             {
@@ -48,7 +47,7 @@ namespace desktopidlegamesoftwareengineering.scripts.managers
             }
             else
             {
-                GD.PrintErr("[GameManager] CurrencyLabel is null!");
+                GD.PrintErr("[GameManager] error: CurrencyLabel is null!");
             }
         }
 
@@ -76,6 +75,7 @@ namespace desktopidlegamesoftwareengineering.scripts.managers
             return false;
         }
 
+        //press 1 to add 300 currency!
         public override void _Process(double delta)
         {
             if (Input.IsActionJustPressed("debug_add_currency"))

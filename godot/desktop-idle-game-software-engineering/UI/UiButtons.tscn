@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbpwn8hbdqqvn"]
 
-[ext_resource type="Script" path="res://UI/DecorationButton.cs" id="2_27gi6"]
+[ext_resource type="Script" path="res://scripts/ui/DecorationButton.cs" id="2_27gi6"]
 [ext_resource type="Script" path="res://scripts/ui/FeedFishButton.cs" id="2_oaymq"]
 [ext_resource type="Texture2D" uid="uid://b76u7v61335xi" path="res://assets/images/currency/seashell.png" id="4_wvbmw"]
 

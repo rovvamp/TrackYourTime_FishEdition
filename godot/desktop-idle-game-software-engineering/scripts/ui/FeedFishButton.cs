@@ -1,37 +1,36 @@
 using Godot;
-namespace desktopidlegamesoftwareengineering.scripts.ui;
 
-public partial class FeedFishButton : Button
+namespace desktopidlegamesoftwareengineering.scripts.ui
 {
-    private CanvasItem _commonFish;
-    private Countdown _countdown;
-
-    public override void _Ready()
+    public partial class FeedFishButton : Button
     {
-        //get references to the fish and countdown
-        _commonFish = GetNode<CanvasItem>("/root/Main/CommonFish");
-        _countdown = GetNode<Countdown>("/root/Main/Countdown");
+        private CanvasItem _commonFish;
+        private Countdown _countdown;
 
-        //hide both the fish and countdown at the start
-        _commonFish.Visible = false;
-        _countdown.Visible = false;
-        
-        this.Pressed += OnButtonPressed;
-    }
-
-    private void OnButtonPressed()
-    {
-        //check if the timer is finished, or if it's not already running
-        if (!_countdown.IsTimerRunning || _countdown.TimeLeft <= 0)
+        public override void _Ready()
         {
-            _commonFish.Visible = true;
-            _countdown.Visible = true;
-            _countdown.ResetTimer();    //reset the timer
-            _countdown.StartTimer();    //start the timer
+            _commonFish = GetNode<CanvasItem>("/root/Main/CommonFish");
+            _countdown = GetNode<Countdown>("/root/Main/Countdown");
+
+            _commonFish.Visible = false;
+            _countdown.Visible = false;
+            
+            Pressed += OnButtonPressed;
         }
-        else
+
+        private void OnButtonPressed()
         {
-            GD.Print("timer is already running!");
+            if (!_countdown.IsTimerRunning || _countdown.TimeLeft <= 0)
+            {
+                _commonFish.Visible = true;
+                _countdown.Visible = true;
+                _countdown.ResetTimer();
+                _countdown.StartTimer();
+            }
+            else
+            {
+                GD.Print("[FeedFishButton] timer is already running!");
+            }
         }
     }
 }

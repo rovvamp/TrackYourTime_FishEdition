@@ -10,43 +10,54 @@ namespace desktopidlegamesoftwareengineering.scripts.decorations
 
         public override void _Ready()
         {
-            GD.Print("[Decorations] _Ready() function started");
+            GD.Print("[Decorations] Initializing decorations...");
 
             _castle = GetNodeOrNull<Sprite2D>("/root/Main/Decorations/DecorationCastle");
             _ship = GetNodeOrNull<Sprite2D>("/root/Main/Decorations/DecorationShip");
 
+            // Verify nodes were found
             if (_castle == null)
-                GD.PrintErr("[Decorations] castle decoration not found!");
+                GD.PrintErr("[Decorations] ERROR: castle decoration not found!");
             else
-                GD.Print("[Decorations] castle found successfully");
+                GD.Print("[Decorations] castle found successfully.");
 
             if (_ship == null)
-                GD.PrintErr("[Decorations] ship decoration not found!");
+                GD.PrintErr("[Decorations] ERROR: ship decoration not found!");
             else
-                GD.Print("[Decorations] ship found successfully");
+                GD.Print("[Decorations] ship found successfully.");
 
-            //ensure decorations start hidden if not purchased
-            if (_castle != null) _castle.Visible = GameManager.Instance.CastlePurchased;
-            if (_ship != null) _ship.Visible = GameManager.Instance.ShipPurchased;
+            // Ensure decorations start hidden if not purchased
+            UpdateDecorationsVisibility();
+        }
+
+        private void UpdateDecorationsVisibility()
+        {
+            if (_castle != null)
+                _castle.Visible = GameManager.Instance.CastlePurchased;
+
+            if (_ship != null)
+                _ship.Visible = GameManager.Instance.ShipPurchased;
+
+            GD.Print($"[Decorations] updated visibility → castle: {_castle?.Visible}, ship: {_ship?.Visible}");
         }
 
         public void TryPurchaseCastle()
         {
             if (GameManager.Instance.PurchaseCastle())
             {
-                if (_castle != null) 
+                if (_castle != null)
                 {
                     _castle.Visible = true;
-                    GD.Print("[Decorations] castle purchased and now visible!");
+                    GD.Print("[Decorations] castle purchased! now visible :)");
                 }
                 else
                 {
-                    GD.PrintErr("[Decorations] castle reference is null");
+                    GD.PrintErr("[Decorations] ERROR: castle reference is null!");
                 }
             }
             else
             {
-                GD.Print("[Decorations] not enough currency for castle!");
+                GD.Print("[Decorations] not enough currency for the castle!");
             }
         }
 
@@ -57,11 +68,11 @@ namespace desktopidlegamesoftwareengineering.scripts.decorations
                 if (_ship != null)
                 {
                     _ship.Visible = true;
-                    GD.Print("[Decorations] ship purchased and now visible!");
+                    GD.Print("[Decorations] Ship purchased! now visible :)");
                 }
                 else
                 {
-                    GD.PrintErr("[Decorations] ship reference is null!");
+                    GD.PrintErr("[Decorations] ERROR: ship reference is null!");
                 }
             }
             else

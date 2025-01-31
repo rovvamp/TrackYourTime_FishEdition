@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c4ksoe30hrwm2" path="res://UI/Countdown.tscn" id="3_8l2up"]
 [ext_resource type="PackedScene" uid="uid://dbpwn8hbdqqvn" path="res://UI/UiButtons.tscn" id="3_j0jle"]
 [ext_resource type="PackedScene" uid="uid://dv3jaid2bxevf" path="res://scenes/decorations/Decorations.tscn" id="3_ts6lh"]
-[ext_resource type="Script" path="res://scenes/decorations/Decorations.cs" id="4_xuw0u"]
+[ext_resource type="Script" path="res://scripts/decorations/Decorations.cs" id="4_xuw0u"]
 [ext_resource type="AudioStream" uid="uid://bqyxr0bmxkvw8" path="res://assets/sounds/Underwater.mp3" id="6_vk334"]
 [ext_resource type="AudioStream" uid="uid://cdkpv58omrxgm" path="res://assets/sounds/PianoMusic.wav" id="7_bjt5s"]
 
