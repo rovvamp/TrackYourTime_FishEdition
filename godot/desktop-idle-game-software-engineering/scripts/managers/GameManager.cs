@@ -1,54 +1,88 @@
 using Godot;
 
-namespace desktopidlegamesoftwareengineering.scripts.managers;
-
-public partial class GameManager : Node
+namespace desktopidlegamesoftwareengineering.scripts.managers
 {
-    private static GameManager _instance;
-    public static GameManager Instance 
-    { 
-        get 
-        { 
+    public partial class GameManager : Node
+    {
+        private static GameManager _instance;
+        public static GameManager Instance => _instance;
+        private Label _currencyLabel;
+
+        public int Currency { get; private set; } = 0;
+        public bool CastlePurchased { get; private set; } = false;
+        public bool ShipPurchased { get; private set; } = false;
+
+        public override void _Ready()
+        {
+            GD.Print("[GameManager] _Ready() function started...");
+
             if (_instance == null)
-                GD.PrintErr("GameManager is null");
-            return _instance; 
-        } 
-    }
-
-    public int Currency { get; private set; } = 0;  //tracks currency
-    public Label CurrencyLabel { get; private set; } //stores reference to the label
-
-    public override void _Ready()
-    {
-        if (_instance == null)
-        {
-            _instance = this; //assign singleton instance
-            GD.Print("GameManager is now active");
+            {
+                _instance = this;
+                GD.Print("[GameManager] GameManager is now active!");
+            }
+            else
+            {
+                QueueFree();
+            }
         }
-        else
+
+        public void RegisterCurrencyLabel(Label currencyLabel)
         {
-            GD.PrintErr("multiple GameManager instances detected!");
-            QueueFree(); //delete duplicate instances
+            _currencyLabel = currencyLabel;
+            UpdateCurrencyLabel();
         }
-    }
 
-    //register the currency label from another script
-    public void RegisterCurrencyLabel(Label label)
-    {
-        CurrencyLabel = label;
-        GD.Print("currencyLabel registered in GameManager");
-    }
+        public void AddCurrency(int amount)
+        {
+            Currency += amount;
+            GD.Print($"[GameManager] currency updated: {Currency}");
+            UpdateCurrencyLabel();
+        }
 
+        private void UpdateCurrencyLabel()
+        {
+            if (_currencyLabel != null)
+            {
+                _currencyLabel.Text = $"{Currency}";
+            }
+            else
+            {
+                GD.PrintErr("[GameManager] CurrencyLabel is null!");
+            }
+        }
 
-    //add currency and update label
-    public void AddCurrency(int amount)
-    {
-        Currency += amount;
-        GD.Print($"currency updated: {Currency}");
+        public bool PurchaseCastle()
+        {
+            if (Currency >= 100 && !CastlePurchased)
+            {
+                Currency -= 100;
+                CastlePurchased = true;
+                UpdateCurrencyLabel();
+                return true;
+            }
+            return false;
+        }
 
-        if (CurrencyLabel != null)
-            CurrencyLabel.Text = $"{Currency}";
-        else
-            GD.PrintErr("CurrencyLabel is null");
+        public bool PurchaseShip()
+        {
+            if (Currency >= 200 && CastlePurchased && !ShipPurchased)
+            {
+                Currency -= 200;
+                ShipPurchased = true;
+                UpdateCurrencyLabel();
+                return true;
+            }
+            return false;
+        }
+
+        public override void _Process(double delta)
+        {
+            if (Input.IsActionJustPressed("debug_add_currency"))
+            {
+                AddCurrency(300);
+                GD.Print("added 300 currency!");
+            }
+        }
     }
 }
